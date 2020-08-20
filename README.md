@@ -2,7 +2,7 @@
 scrape, clean and model IPO data with supervised ML
 
 ## Project description
-Can we actually predict when the IPO will be successful? Which features increase this probability? This is what this project is about. It scrapes information about recent IPOs, combines it with stock data, cleans and munges the data and finally uses engineered features in a machine learning model to predict the offering success on its first day of trading.
+Can we actually predict if an IPO will be successful? Which features increase this probability? This is what this project is about. It scrapes information about recent IPOs, combines it with stock data, cleans and munges the data and finally uses engineered features in a machine learning model to predict the offering success on its first day of trading.
 
 **Disclosure:** This idea of this project started from my bad experience of investing into Lyft on its first day of trading in 2019. Lyft severely lost it's value after IPO and its price continues to fall. As a newbee in investing, I decided to explore the IPO market to better understand its dynamics in order to avoid similar mistakes in the future.
 
@@ -53,15 +53,15 @@ Result: From 1533 IPO companies listed on Nasdaq, 703 companies were not scraped
 Offering success was defined here if the IPO price grew by more than $1 on its first day of trading.  
 
 I used these features in my model:
-- Price, Shares, Offer Amount and Employees from Nasdaq data on IPO
+- Price, Shares, Offer Amount, Employees, weekday of IPO from NASDAQ data
 - sector, CEO_pay, CEO_born and SP_Week_Chg - from Yahoo Finance
 
 I also calculated the total predicted gain from using the model and compare it to the actual gain (if all IPOs which prices went higher than $1 on the first day of trading were predicted correctly - practically impossible task) and the gain using the naive approach - i.e. when we invested in each and every IPO - buying it at opening price and selling at closing price.
 
 Among the 4 models tested here, **Logistic Regression** performed the best (others are GradientBoost, RandomForest and AdaBoost). It has the highest f-beta score which maximizes precision - 0.63 (vs. GB=0.55, RF=0.58, Ada=0.59). The second best model which came close is AdaBoost. 
 
-We also get the highest gains with the Logistic Regression - \$37.62 (vs GB=\\$6.29, RF=\$3.13, Ada=\\$9.21). 
-It's not the highest possible amount that we could have earned. If we could have predicted all successful IPOs correctly, we would have earned \$85.99. Still using predictive modelling produced a much better outcome than naive approach, when investing in each and every IPO. In this case, the returns would have been negative or \\$-34.09.
+We also get the highest gains with the Logistic Regression - \$37.62 (vs GB=\$6.29, RF=\$3.13, Ada=\$9.21). 
+It's not the highest possible amount that we could have earned. If we could have predicted all successful IPOs correctly, we would have earned \$85.99. Still using predictive modelling produced a much better outcome than naive approach, when investing in each and every IPO. In this case, the returns would have been negative or \$-34.09.
 
 In general, all tested models performed much better than the naive approach and so could help avoid losing money by investing in unsuccessful IPOs.
 
